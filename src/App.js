@@ -48,6 +48,23 @@ function App() {
     return filteredTodos;
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const updatedTodos = [
+      ...todos,
+      {
+        text: todoInput,
+        completed: false,
+      },
+    ];
+    setTodoInput("");
+    setTodos(updatedTodos);
+  };
+
+  const handleChange = (event) => {
+    return setTodoInput(event.target.value);
+  };
+
   const incompleteTodos = filterIncompleteTodos(todos);
 
   const completedTodos = filterCompletedTodos(todos);
@@ -69,23 +86,15 @@ function App() {
         </section>
         <section>
           <h2 className="title">ADD ITEM</h2>
-          <form
-            className="add-item"
-            onSubmit={() => {}}
-            // handleSubmit
-          >
+          <form className="add-item" onSubmit={handleSubmit}>
             <input
               className="text-input"
               type="text"
               name="text"
               required
-              minlength="3"
-              onChange={
-                () => {}
-                // handleChange
-              }
-              value=""
-              // {todoInput}
+              minLength="3"
+              onChange={handleChange}
+              value={todoInput}
             />
             <button type="submit">Add</button>
           </form>
