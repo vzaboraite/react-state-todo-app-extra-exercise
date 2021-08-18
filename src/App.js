@@ -65,6 +65,14 @@ function App() {
     return setTodoInput(event.target.value);
   };
 
+  const removeTodo = (targetTodo) => {
+    console.log("deleted: ", targetTodo);
+    const updatedTodos = todos.filter((todo) => {
+      return todo !== targetTodo;
+    });
+    setTodos(updatedTodos);
+  };
+
   const incompleteTodos = filterIncompleteTodos(todos);
 
   const completedTodos = filterCompletedTodos(todos);
@@ -116,13 +124,7 @@ function App() {
                   <p className="text">{todo.text}</p>
                 </div>
                 <div className="button-section">
-                  <button
-                    className="delete"
-                    onClick={
-                      () => {}
-                      // removeTodo(todo)
-                    }
-                  >
+                  <button className="delete" onClick={() => removeTodo(todo)}>
                     🗑
                   </button>
                 </div>
@@ -148,13 +150,7 @@ function App() {
                     <p className="text completed">{todo.text}</p>
                   </div>
                   <div className="button-section">
-                    <button
-                      className="delete"
-                      onClick={
-                        () => {}
-                        //removeTodo(todo)
-                      }
-                    >
+                    <button className="delete" onClick={() => removeTodo(todo)}>
                       🗑
                     </button>
                   </div>
