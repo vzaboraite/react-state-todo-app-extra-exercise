@@ -18,8 +18,9 @@ const initialTodos = [
 
 function App() {
   const [todos, setTodos] = useState(initialTodos);
+  const [showCompletedTodos, setShowCompletedTodos] = useState(false);
 
-  console.log("State: ", todos);
+  console.log("State: ", todos, showCompletedTodos);
 
   return (
     <div className="App">
