@@ -17,6 +17,10 @@ const initialTodos = [
 ];
 
 function App() {
+  const [todos, setTodos] = useState(initialTodos);
+
+  console.log("State: ", todos);
+
   return (
     <div className="App">
       <main>
@@ -66,7 +70,7 @@ function App() {
           <ul className="todo-list">
             {
               // incompleteTodos
-              initialTodos.map((todo) => (
+              todos.map((todo) => (
                 <li className="todo">
                   <div className="completed-section">
                     <input
@@ -104,7 +108,7 @@ function App() {
           <ul className="completed-list">
             {
               // completedTodos
-              initialTodos.map((todo) => (
+              todos.map((todo) => (
                 <li className="todo">
                   <div className="completed-section">
                     <input
