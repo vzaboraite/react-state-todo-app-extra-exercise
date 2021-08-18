@@ -19,8 +19,9 @@ const initialTodos = [
 function App() {
   const [todos, setTodos] = useState(initialTodos);
   const [showCompletedTodos, setShowCompletedTodos] = useState(false);
+  const [todoInput, setTodoInput] = useState("");
 
-  console.log("State: ", todos, showCompletedTodos);
+  console.log("State: ", todos, showCompletedTodos, todoInput);
 
   const toggleTodoCompletion = (targetTodo) => {
     const updatedTodos = todos.map((todo) => {
