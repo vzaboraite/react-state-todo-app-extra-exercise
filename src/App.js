@@ -31,15 +31,9 @@ function App() {
             Show completed
             <input
               className="show-completed"
-              onChange={
-                (e) => {}
-                // setShowCompletedTodos(e.target.checked)
-              }
+              onChange={(e) => setShowCompletedTodos(e.target.checked)}
               type="checkbox"
-              checked={
-                true
-                //showCompletedTodos
-              }
+              checked={showCompletedTodos}
             />
           </label>
         </section>
@@ -103,45 +97,45 @@ function App() {
             }
           </ul>
         </section>
-        ( {/* {showCompletedTodos ? ( */}
-        <section className="completed-list-section">
-          <h2 className="title">COMPLETED</h2>
-          <ul className="completed-list">
-            {
-              // completedTodos
-              todos.map((todo) => (
-                <li className="todo">
-                  <div className="completed-section">
-                    <input
-                      className="completed-checkbox"
-                      type="checkbox"
-                      checked={todo.completed}
-                      onChange={
-                        () => {}
-                        // toggleTodoCompletion(todo)
-                      }
-                    />
-                  </div>
-                  <div className="text-section">
-                    <p className="text completed">{todo.text}</p>
-                  </div>
-                  <div className="button-section">
-                    <button
-                      className="delete"
-                      onClick={
-                        () => {}
-                        //removeTodo(todo)
-                      }
-                    >
-                      🗑
-                    </button>
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-        {/* ) : null} */})
+        {showCompletedTodos ? (
+          <section className="completed-list-section">
+            <h2 className="title">COMPLETED</h2>
+            <ul className="completed-list">
+              {
+                // completedTodos
+                todos.map((todo) => (
+                  <li className="todo">
+                    <div className="completed-section">
+                      <input
+                        className="completed-checkbox"
+                        type="checkbox"
+                        checked={todo.completed}
+                        onChange={
+                          () => {}
+                          // toggleTodoCompletion(todo)
+                        }
+                      />
+                    </div>
+                    <div className="text-section">
+                      <p className="text completed">{todo.text}</p>
+                    </div>
+                    <div className="button-section">
+                      <button
+                        className="delete"
+                        onClick={
+                          () => {}
+                          //removeTodo(todo)
+                        }
+                      >
+                        🗑
+                      </button>
+                    </div>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+        ) : null}
       </main>
     </div>
   );
