@@ -20,6 +20,21 @@ function App() {
   const [todos, setTodos] = useState(initialTodos);
   const [showCompletedTodos, setShowCompletedTodos] = useState(false);
 
+  const toggleTodoCompletion = (targetTodo) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo === targetTodo) {
+        const updatedTodo = {
+          ...targetTodo,
+          completed: !targetTodo.completed,
+        };
+        return updatedTodo;
+      } else {
+        return todo;
+      }
+    });
+    setTodos(updatedTodos);
+  };
+
   console.log("State: ", todos, showCompletedTodos);
 
   return (
@@ -72,10 +87,7 @@ function App() {
                       className="completed-checkbox"
                       type="checkbox"
                       checked={todo.completed}
-                      onChange={
-                        () => {}
-                        // toggleTodoCompletion(todo)
-                      }
+                      onChange={() => toggleTodoCompletion(todo)}
                     />
                   </div>
                   <div className="text-section">
